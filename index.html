@@ -466,7 +466,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 
-<script id="vpluy-bienvenida-v50524k-script">
+<script id="vpluy-bienvenida-v50524l-script">
 (function(){
   function iniciar(){
     if(document.getElementById('vpluyBienvenidaOverlay')) return;
@@ -481,14 +481,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       </div>
     </div>`;
     document.body.appendChild(ov);
-    function cerrar(){{document.body.classList.remove('vpluy-bienvenida-abierta');if(ov&&ov.parentNode)ov.parentNode.removeChild(ov);}}
-    function irProductos(){{cerrar();var t=document.getElementById('grid')||document.querySelector('.grid')||document.body;setTimeout(function(){{try{{t.scrollIntoView({{behavior:'smooth',block:'start'}});}}catch(e){{location.hash='grid';}}}},50);}}
+    function cerrar(){document.body.classList.remove('vpluy-bienvenida-abierta');if(ov&&ov.parentNode)ov.parentNode.removeChild(ov);}
+    function irProductos(){cerrar();var t=document.getElementById('grid')||document.querySelector('.grid')||document.body;setTimeout(function(){try{t.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){location.hash='grid';}},50);}
     document.getElementById('vpluyBienvenidaCerrar').addEventListener('click',cerrar);
     document.getElementById('vpluyBienvenidaIrProductos').addEventListener('click',irProductos);
-    ov.addEventListener('click',function(e){{if(e.target===ov)cerrar();}});
-    document.addEventListener('keydown',function h(e){{if(e.key==='Escape'){{cerrar();document.removeEventListener('keydown',h);}}}});
-  }}
+    ov.addEventListener('click',function(e){if(e.target===ov)cerrar();});
+    document.addEventListener('keydown',function h(e){if(e.key==='Escape'){cerrar();document.removeEventListener('keydown',h);}});
+  }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',iniciar);else iniciar();
-}})();
+})();
 </script>
 </body></html>
