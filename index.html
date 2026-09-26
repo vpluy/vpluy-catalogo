@@ -687,6 +687,171 @@ main.wrap{
 }
 </style>
 
+
+<style id="vpluy-video-modal-2026">
+/* Módulo independiente de videos. NO modifica encabezado, productos, opiniones ni layout protegido. */
+.vpl-video-modal{
+  position:fixed;
+  inset:0;
+  z-index:50000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,15,38,.88);
+  backdrop-filter:blur(5px);
+}
+.vpl-video-modal.open{display:flex!important}
+.vpl-video-modal-box{
+  width:min(1100px,96vw);
+  max-height:94vh;
+  background:#061f40;
+  border-radius:18px;
+  box-shadow:0 24px 80px rgba(0,0,0,.48);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.vpl-video-modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 14px;
+  background:#082b59;
+  color:#fff;
+}
+.vpl-video-modal-title{
+  min-width:0;
+  font-size:17px;
+  font-weight:950;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.vpl-video-modal-close{
+  width:42px;
+  height:42px;
+  flex:0 0 auto;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#073d7e;
+  font-size:24px;
+  font-weight:950;
+  cursor:pointer;
+}
+.vpl-video-modal-player{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+}
+.vpl-video-modal-player iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+.vpl-video-modal-nav{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:10px;
+  padding:12px 14px 14px;
+  background:#082b59;
+}
+.vpl-video-modal-nav button{
+  min-height:46px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:11px;
+  background:#0d6efd;
+  color:#fff;
+  padding:9px 14px;
+  font-size:12px;
+  font-weight:950;
+  cursor:pointer;
+}
+.vpl-video-modal-nav .vpl-video-counter{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#dcecff;
+  font-size:11px;
+  font-weight:900;
+  min-width:86px;
+}
+.vpl-video-modal-nav button:disabled{
+  opacity:.35;
+  cursor:default;
+}
+.vpl-youtube-cover{
+  cursor:pointer!important;
+}
+@media(max-width:760px){
+  .vpl-video-modal{
+    padding:0!important;
+    align-items:center!important;
+  }
+  .vpl-video-modal-box{
+    width:100vw!important;
+    max-height:100vh!important;
+    border-radius:0!important;
+  }
+  .vpl-video-modal-head{
+    padding:10px 11px!important;
+  }
+  .vpl-video-modal-title{
+    font-size:14px!important;
+  }
+  .vpl-video-modal-close{
+    width:40px!important;
+    height:40px!important;
+  }
+  .vpl-video-modal-player{
+    width:100%!important;
+    aspect-ratio:16/9!important;
+  }
+  .vpl-video-modal-nav{
+    grid-template-columns:1fr 74px 1fr!important;
+    gap:7px!important;
+    padding:10px!important;
+  }
+  .vpl-video-modal-nav button{
+    min-height:48px!important;
+    padding:8px 7px!important;
+    font-size:11px!important;
+  }
+  /* Galería de videos más cómoda en móvil */
+  #videosection .videogrid{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:14px!important;
+  }
+  #videosection .videocard{
+    width:100%!important;
+    border-radius:14px!important;
+    overflow:hidden!important;
+  }
+  #videosection .vpl-video-frame{
+    min-height:0!important;
+    height:auto!important;
+    aspect-ratio:16/9!important;
+  }
+  #videosection .vpl-youtube-cover{
+    width:100%!important;
+    height:100%!important;
+  }
+  #videosection .videobody h3{
+    font-size:15px!important;
+  }
+  #videosection .videobody p{
+    font-size:12px!important;
+    line-height:1.45!important;
+  }
+}
+</style>
+
 </head><body>
 
 <!--
@@ -1250,6 +1415,113 @@ document.body.appendChild(ov);
   setTimeout(clean, 1800);
   window.addEventListener('load', clean);
   window.addEventListener('resize', clean);
+})();
+</script>
+
+
+<div class="vpl-video-modal" id="vplVideoModal" aria-hidden="true">
+  <div class="vpl-video-modal-box" role="dialog" aria-modal="true" aria-label="Video de demostración">
+    <div class="vpl-video-modal-head">
+      <div class="vpl-video-modal-title" id="vplVideoModalTitle">Video de demostración</div>
+      <button type="button" class="vpl-video-modal-close" id="vplVideoModalClose" aria-label="Cerrar">×</button>
+    </div>
+    <div class="vpl-video-modal-player">
+      <iframe id="vplVideoModalFrame"
+              title="Video de demostración VPLuy"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen></iframe>
+    </div>
+    <div class="vpl-video-modal-nav">
+      <button type="button" id="vplVideoPrev">← Anterior</button>
+      <div class="vpl-video-counter" id="vplVideoCounter">1 / 1</div>
+      <button type="button" id="vplVideoNext">Siguiente →</button>
+    </div>
+  </div>
+</div>
+
+
+<script id="vpluy-video-modal-2026-script">
+(function(){
+  var modal, frame, title, prev, next, counter, closeBtn;
+  var videos = [];
+  var current = 0;
+
+  function collect(){
+    videos = [];
+    document.querySelectorAll('#videosection .vpl-youtube-cover').forEach(function(btn){
+      var oc = btn.getAttribute('onclick') || '';
+      var m = oc.match(/vplPlayYoutube\s*\(\s*this\s*,\s*['"]([^'"]+)['"]\s*,\s*['"]([^'"]*)['"]\s*\)/i);
+      var id = m ? m[1] : '';
+      var t = m ? m[2] : '';
+      if(!t){
+        var card = btn.closest('.videocard');
+        var h = card ? card.querySelector('.videobody h3') : null;
+        t = h ? h.textContent.trim() : 'Video de demostración';
+      }
+      if(id) videos.push({id:id,title:t,button:btn});
+    });
+  }
+
+  function show(i){
+    if(!videos.length) collect();
+    if(!videos.length) return;
+    current = Math.max(0,Math.min(i,videos.length-1));
+    var v = videos[current];
+    frame.src = 'https://www.youtube.com/embed/' + encodeURIComponent(v.id) + '?autoplay=1&rel=0&playsinline=1';
+    title.textContent = v.title || 'Video de demostración';
+    counter.textContent = (current+1) + ' / ' + videos.length;
+    prev.disabled = current === 0;
+    next.disabled = current === videos.length-1;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.documentElement.style.overflow='hidden';
+    document.body.style.overflow='hidden';
+  }
+
+  function close(){
+    if(!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    frame.src = '';
+    document.documentElement.style.overflow='';
+    document.body.style.overflow='';
+  }
+
+  function init(){
+    modal = document.getElementById('vplVideoModal');
+    frame = document.getElementById('vplVideoModalFrame');
+    title = document.getElementById('vplVideoModalTitle');
+    prev = document.getElementById('vplVideoPrev');
+    next = document.getElementById('vplVideoNext');
+    counter = document.getElementById('vplVideoCounter');
+    closeBtn = document.getElementById('vplVideoModalClose');
+    collect();
+
+    document.addEventListener('click',function(e){
+      var btn = e.target.closest && e.target.closest('#videosection .vpl-youtube-cover');
+      if(!btn) return;
+      e.preventDefault();
+      e.stopPropagation();
+      if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+      collect();
+      var idx = videos.findIndex(function(v){return v.button===btn});
+      show(idx < 0 ? 0 : idx);
+    },true);
+
+    closeBtn.addEventListener('click',close);
+    prev.addEventListener('click',function(){ if(current>0) show(current-1); });
+    next.addEventListener('click',function(){ if(current<videos.length-1) show(current+1); });
+    modal.addEventListener('click',function(e){ if(e.target===modal) close(); });
+    document.addEventListener('keydown',function(e){
+      if(!modal.classList.contains('open')) return;
+      if(e.key==='Escape') close();
+      if(e.key==='ArrowLeft' && current>0) show(current-1);
+      if(e.key==='ArrowRight' && current<videos.length-1) show(current+1);
+    });
+  }
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
 })();
 </script>
 
