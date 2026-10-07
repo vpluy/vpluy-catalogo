@@ -1,0 +1,33 @@
+{
+  "nota": "Completar importes en pesos uruguayos; null significa precio a confirmar. Publicar este archivo junto a index.html.",
+  "envio_gratis_desde": null,
+  "zonas": {
+    "Cerrito de la Victoria": null,
+    "Aguada": null,
+    "Atahualpa": null,
+    "Brazo Oriental": null,
+    "Buceo": null,
+    "Capurro": null,
+    "Carrasco": null,
+    "Casavalle": null,
+    "Centro": null,
+    "Ciudad Vieja": null,
+    "Cordón": null,
+    "Goes": null,
+    "La Blanqueada": null,
+    "La Comercial": null,
+    "La Teja": null,
+    "Malvín": null,
+    "Maroñas": null,
+    "Parque Batlle": null,
+    "Parque Rodó": null,
+    "Paso Molino": null,
+    "Peñarol": null,
+    "Pocitos": null,
+    "Prado": null,
+    "Punta Carretas": null,
+    "Unión": null,
+    "Villa Española": null,
+    "Otra zona (consultar)": null
+  }
+}
