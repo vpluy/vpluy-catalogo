@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-13T02:22:43.941Z",
+  "zones": [
+    {
+      "name": "Cerrito",
+      "price": 100
+    },
+    {
+      "name": "Brazo Oriental",
+      "price": 150
+    },
+    {
+      "name": "Castro, Pérez Castellanos",
+      "price": 150
+    },
+    {
+      "name": "Villa Española",
+      "price": 150
+    },
+    {
+      "name": "Atahualpa",
+      "price": 150
+    },
+    {
+      "name": "Aires Puros",
+      "price": 150
+    },
+    {
+      "name": "Prado, Nueva Savona",
+      "price": 150
+    },
+    {
+      "name": "La Teja",
+      "price": 200
+    },
+    {
+      "name": "Cerro",
+      "price": 200
+    },
+    {
+      "name": "Belvedere",
+      "price": 200
+    },
+    {
+      "name": "Flor de Maroñas",
+      "price": 150
+    },
+    {
+      "name": "La Blanqueada",
+      "price": 200
+    },
+    {
+      "name": "Tres Cruces",
+      "price": 200
+    },
+    {
+      "name": "Parque Batlle, Villa Dolores",
+      "price": 200
+    },
+    {
+      "name": "Pocitos",
+      "price": 250
+    },
+    {
+      "name": "Punta Carretas",
+      "price": 250
+    },
+    {
+      "name": "Palermo",
+      "price": 250
+    },
+    {
+      "name": "Barrio Sur",
+      "price": 250
+    }
+  ]
+}
